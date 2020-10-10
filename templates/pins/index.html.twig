@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Panterest' %}
+
+{% block body %}
+<h1>{{  pluralize(pins|length,'Pin')}}</h1>
+
+{% for pin in pins %}
+<h2>{{pin.title}}</h2> 
+<p>{{pin.content}}</p> 
+{% endfor %}
+
+
+{% endblock %}
