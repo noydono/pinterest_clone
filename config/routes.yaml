@@ -1,3 +1,7 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+app_pins_show:
+    path: /pins/{id<[0-9]+>}
+    controller: App\Controller\PinsController::show
