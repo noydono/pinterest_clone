@@ -3,4 +3,5 @@
 %} {% block body %}
 <h2>{{pin.title}}</h2>
 <h2>{{pin.content}}</h2>
+<a href="{{ path('app_pins_edit', {'id':pin.id})}}">Edit</a>
 {% endblock %}
