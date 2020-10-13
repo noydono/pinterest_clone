@@ -1,0 +1,33 @@
+{
+  "name": "pinterest_clone",
+  "version": "1.0.0",
+  "description": "apprentissage de php-symfony",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noydono/pinterest_clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noydono/pinterest_clone/issues"
+  },
+  "homepage": "https://github.com/noydono/pinterest_clone#readme",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.31.0",
+    "bootstrap": "^4.5.3",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "sass-loader": "9.0.1",
+    "webpack-notifier": "1.6.0"
+  }
+}

@@ -1,8 +1,10 @@
-{% extends 'base.html.twig' %} 
+{% extends 'layouts/base.html.twig' %} 
 {% block title 'New Pin' %}
 {% block body %}
 
-{{include('/pins/partials/_form.html.twig',{submitButtonText:'Create Pin'})}}
-
+<div class="col-md-6">
+    <h1 Class="mt-5">Create Pin</h1>
+    {{include('/partials/_form.html.twig',{submitButtonText:'Create Pin'})}}
+</div>
 
 {% endblock %}

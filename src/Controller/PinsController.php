@@ -7,8 +7,6 @@ use App\Form\PinType;
 use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,6 +45,7 @@ class PinsController extends AbstractController
             $pin = $form->getData();
             $em->persist($pin);
             $em->flush();
+            $this->addFlash('success','Pin successfuly created!');
             return $this->redirectToRoute('app_home');
         }
 
@@ -69,6 +68,8 @@ class PinsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
+            $this->addFlash('success','Pin successfuly updated!');
+
             return $this->redirectToRoute('app_home');
         }
 
@@ -78,7 +79,7 @@ class PinsController extends AbstractController
         ]);
     }
      /**
-     * @Route("/pins/{id<[0-9]+>}/delete", name="app_pins_delete", methods={"DELETE"})
+     * @Route("/pins/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
      */
     public function delete(Request $req ,Pin $pin, EntityManagerInterface $em): Response
     {
@@ -86,6 +87,8 @@ class PinsController extends AbstractController
         if($this->isCsrfTokenValid('pins_delete' . $pin->getId(), $token)){
             $em->remove($pin);
             $em->flush(); 
+            $this->addFlash('info','Pin successfuly deleted!');
+
         }
         
 

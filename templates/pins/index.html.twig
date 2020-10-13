@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %} 
+{% extends 'layouts/base.html.twig' %} 
 {% block title 'Panterest' %} {% block body %}
-<h1>{{ pluralize(pins | length, "Pin") }}</h1>
-
+{# <h1>{{ pluralize(pins | length, "Pin") }}</h1> #}
+<h1 Class="mt-5">Welcom on Panterest</h1>
 {% for pin in pins %}
 <h2>
   <a href="{{ path('app_pins_show', {id:pin.id}) }}"> {{ pin.title }}</a>
 </h2>
-<p>{{ pin.content }}</p>
-<p>{{ pin.id }}</p>
-{% endfor %} {% endblock %}
+<p>{{ pin.content|u.truncate(10, '...', true)}}</p>
+<p>Submitted {{ pin.createdAt|ago }}</p>
+{% endfor %} 
+{% endblock %}
