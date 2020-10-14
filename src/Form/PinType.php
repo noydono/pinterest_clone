@@ -11,10 +11,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
+
 class PinType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+       
         $builder
             ->add('title',TextType::class)
             ->add('content',TextareaType::class)
@@ -22,8 +24,10 @@ class PinType extends AbstractType
                 'label' => 'Image (JPG or PNG file)',
                 'required' => false,
                 'allow_delete' => true,
-                'delete_label' => 'Delete',
-                'download_uri' => false,                
+                'delete_label' => 'Delete?',
+                'download_uri' => false,
+                'imagine_pattern' => 'squared_thumbnail-small'
+                          
                 ])
         ;
     }

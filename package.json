@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/noydono/pinterest_clone#readme",
   "dependencies": {
+    "core-js": "^3.6.5",
     "jquery": "^3.5.1"
   },
   "devDependencies": {

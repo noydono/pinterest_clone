@@ -1,22 +1,30 @@
 {% extends 'layouts/base.html.twig' %} 
 {% block title 'Panterest' %} 
 {% block body %}
-<div class="col-md-12">
-  
-  <h1 Class="mt-5">Welcom on Panterest</h1>
-  {% for pin in pins %}
-  <div class="card" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ pin.title }}</h5>
-      <p class="card-text">
-        {{ pin.content|u.truncate(10, '...', true)}}
-      </p>
-      <a href="{{ path('app_pins_show', { id: pin.id }) }}" class="text-dark btn btn-info">Go somewhere</a>
-    </div>
-  </div>
-  {% endfor %} 
-  
+<h1 Class="mt-5 text-center">Welcom on Panterest</h1>
+
+{% if pins|length > 0 %}
+           
+{% for row in pins|batch(3) %}
+<div class="row justify-content-md-center">             
+{% for pin in row %}
+<div class="col-md-3 mx-3 my-3">
+    <div class="card pin" style="width: 18rem;" >
+        <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/placeholder.jpg')) | imagine_filter('squared_thumbnail-medium') }}" class="card-img-top" alt="{{ pin.title}}" height="100%" />
+        <div class="card-body">
+            <h5 class="card-title">{{ pin.title }}</h5>
+            <p class="ml-3"><small class="text-muted">Submittes [OWNER FULL NAME]</small></p>
+            <a href="{{ path('app_pins_show', { id: pin.id }) }}" class="text-dark btn btn-info">Go somewhere</a>
+        </div>
+    </div>  
 </div>
+{% endfor %} 
+</div>
+{% endfor %} 
+
+{% else %}
+<h2 class="text-center mt-5">no pins yet. <a href="{{ path('app_pins_create') }}">Be the First</a></h2>
+{% endif %}
+
 
 {% endblock %}
