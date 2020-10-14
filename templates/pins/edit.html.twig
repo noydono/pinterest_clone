@@ -1,9 +1,9 @@
 {% extends 'layouts/base.html.twig' %} 
 {% block title 'Edit Pin!' %} 
 {% block body %}
-
-<h1 class="mt-5">Edit Pin #{{pin.id}}</h1>
-
-{{include('/partials/_form.html.twig',{submitButtonText:'Update Pin'})}}
+<div class="col-md-6">
+  <h1 class="mt-5">Edit Pin #{{ pin.id }}</h1>
+  {{ include("/partials/_form.html.twig", { submitButtonText: "Update Pin" }) }}
+</div>
 
 {% endblock %}
