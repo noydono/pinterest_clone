@@ -17,7 +17,6 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
 $('.custom-file-input').on('change', function(e) {
     var inputFile = e.currentTarget;
